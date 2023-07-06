@@ -1,5 +1,4 @@
 const Game = require('../api/models/game.models')
-const Score_game = require('../api/models/score_game.models')
 const Player = require('../api/models/player.models')
 const Category = require('../api/models/category.models')
 const Invitation = require('../api/models/invitation.models')
@@ -7,11 +6,7 @@ const Invitation = require('../api/models/invitation.models')
 function addRelationsToModels() {
 
     try {
-        // One To One
 
-        Game.hasOne(Score_game)
-        Score_game.belongsTo(Game)
-       
     
         //// Many to Many
 
