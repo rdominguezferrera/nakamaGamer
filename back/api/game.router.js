@@ -1,7 +1,7 @@
 const {
     getAllGames,
     getOneGame,
-    createNewGame,
+    addNewGame,
     deleteGame
     
  
@@ -16,7 +16,7 @@ const { checkPlayer } = require('../../middlewares/roleCheck')
 
 gameRouter.get('/',checkAuth, checkPlayer, getAllGames)
 gameRouter.get('/:id',checkAuth,checkPlayer, getOneGame)
-gameRouter.post('/', checkAuth, checkAdmin,  createNewGame)
+gameRouter.post("/", checkAuth, checkAdmin, addNewGame);
 gameRouter.delete('/', checkAuth, checkAdmin,  deleteGame)
 
 

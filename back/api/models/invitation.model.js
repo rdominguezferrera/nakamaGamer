@@ -5,7 +5,7 @@ const Invitation = sequelize.define(
     'invitation',
     {
         invitation_state: {
-            type: DataTypes.STRING,
+            type: DataTypes.ENUM,
             allowNull: false
         },
        

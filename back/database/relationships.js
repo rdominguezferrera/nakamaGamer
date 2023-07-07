@@ -1,5 +1,5 @@
 const Game = require('../api/models/game.models')
-const Player = require('../api/models/player.models')
+const User = require('../api/models/user.models')
 const Category = require('../api/models/category.models')
 const Invitation = require('../api/models/invitation.models')
 
@@ -10,20 +10,20 @@ function addRelationsToModels() {
     
         //// Many to Many
 
-        // "player"."player_id" <> "player_game"."player_id"
+        // "user"."user_id" <> "user_game"."user_id"
 
-        Player.belongsToMany(Game, { through: 'player_game' })
-        Game.belongsToMany(Player, { through: 'player_game' })
+        User.belongsToMany(Game, { through: "user_game" });
+        Game.belongsToMany(User, { through: "user_game" });
 
         // "game"."game_id" <> "game_category"."game_id"
 
         Game.belongsToMany(Category, { through: 'game_category' })
         Category.belongsToMany(Game, { through: 'game_category' })
 
-        // "player"."player_id" <> "player_invitation"."player_id"
+        // "user"."user_id" <> "user_invitation"."user_id"
 
-        Player.belongsToMany(Invitation, { through: 'player_invitation' })
-        Invitation.belongsToMany(Player, { through: 'player_invitation' })
+        User.belongsToMany(Invitation, { through: "user_invitation" });
+        Invitation.belongsToMany(User, { through: "user_invitation" });
 
         console.log('Relations added to all models')
 
@@ -33,4 +33,4 @@ function addRelationsToModels() {
     }
 }
 
-module.exports = addRelationsToModels
+module.exports = { addRelationsToModels }

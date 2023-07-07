@@ -1,8 +1,9 @@
 const express = require('express')
 require('dotenv').config()
 const { sequelize, checkConnection, syncModels } = require('./database/index')
-const addRelationsToModels = require('./database/relationships')
+const { addRelationsToModels } = require('./database/relationships')
 const router = require('./api/routes/index')
+const express = require ('express')
 const cors = require('cors')
 const morgan = require('morgan')
 
@@ -15,7 +16,9 @@ const checkAndSync = async () => {
         addRelationsToModels()
         await syncModels("alter")
     } catch (error) {
+
         console.error(error)
+        throw new Error(error)
     }
 }
 

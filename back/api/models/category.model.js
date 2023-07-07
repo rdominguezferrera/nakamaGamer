@@ -5,16 +5,16 @@ const Category = sequelize.define(
     'category',
     {
         category_type: {
+            type: DataTypes.ENUM,
+            allowNull: false
+        },
+
+        category_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        
-        category_controll_age: {
-            type: DataTypes.ENUM,
-            allowNull: false,
-            
-        }
-
+     
+     
 
         
         

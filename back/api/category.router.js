@@ -1,7 +1,7 @@
 const {
     getAllCategories,
     getOneCategory,
-    createNewCategory,
+    addNewCategory,
     deleteCategory
     
  
@@ -16,7 +16,7 @@ const { checkPlayer } = require('../../middlewares/roleCheck')
 
 gameRouter.get('/',checkAuth, checkPlayer, getAllCategories)
 gameRouter.get('/:id',checkAuth,checkPlayer, getOneCategory)
-gameRouter.post('/', checkAuth, checkAdmin,  createNewCategory)
+gameRouter.post("/", checkAuth, checkAdmin, addNewCategory);
 gameRouter.delete('/', checkAuth, checkAdmin,  deleteCategory)
 
 

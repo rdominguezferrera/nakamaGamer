@@ -1,11 +1,12 @@
 const {
     getAllUsers,
-    createNewUser,
+    getOneUser,
+    addNewUser,
     deleteUser,
     updateUser,
-    addUserNewCategory,
-    deleteUserNewCategory,
-    addUserNewGame,
+    //addUserNewCategory,
+    //deleteUserNewCategory,
+    //addUserNewGame,
     getAllUsersEager
 
 } = require('../controllers/puntoextraccion.controller') 
@@ -16,8 +17,9 @@ const { checkPlayer } = require('../../middlewares/roleCheck')
 
 
 
-userRouter.get('/',checkAuth, checkPlayer,  getAllUsers)
-userRouter.get('/',checkAuth, checkAdmin, createNewUser)
+userRouter.get("/", checkAuth, checkPlayer, getAllUsers);
+userRouter.get("/", checkAuth, checkPlayer, getOneUser);
+userRouter.get("/", checkAuth, checkAdmin, addNewUser);
 userRouter.delete('/',checkAuth, checkAdmin, deleteUser)
 userRouter.get('/',checkAuth, checkAdmin,  updateUser)
 userRouter.post('/', checkAuth, checkAdmin,  addUserNewCategory)

@@ -1,0 +1,6 @@
+(1, 'RPG','shooter','roll','adventure','fantasy')
+(2, 'RPG','shooter','roll','adventure','fantasy')
+(3, 'RPG','shooter','roll','adventure','fantasy')
+(4, 'RPG','shooter','roll','adventure','fantasy')
+(5, 'RPG','shooter','roll','adventure','fantasy')
+(6, 'RPG','shooter','roll','adventure','fantasy')
