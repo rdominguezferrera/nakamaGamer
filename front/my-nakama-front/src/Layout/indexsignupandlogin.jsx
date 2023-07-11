@@ -1,15 +1,17 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from '../Components/Header/Header'
+import HeaderSignupAndLogin from '../Components/HeaderSignupAndLogin/HeaderSignupAndLogin'
 import Footer from '../Components/Footer/Footer'
+
+
 function Root() {
   return (
     <div>
-      <Header />
-      <section>
+      <HeaderSignupAndLogin />
+      
         <Outlet />
-      </section>
-      <Footer/>
+      
+      <Footer />
     </div>
   )
 }
