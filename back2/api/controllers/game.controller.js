@@ -30,7 +30,7 @@ async function getOneGame(req, res) {
 
  async function addNewGame(req, res) {
   try {
-    const game = await Game.create(req.body);
+    const game = await Game.create(req.body)
     return res.status(200).json({ message: "game created", game: game });
   } catch (error) {
     return res.status(500).send(error.message);
