@@ -8,7 +8,7 @@ const signup = async (req, res) => {
   try {
     req.body.user_password = bcrypt.hashSync(req.body.user_password, 10)
     const user = await User.create(req.body.game)
-    //const game = await Game.setInfo()
+    const game = await Game.setInfo()
     console.log(user)
     const token = jwt.sign({ email: user.user_email }, "secret", {
       expiresIn: "7d",

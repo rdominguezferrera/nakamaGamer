@@ -1,3 +1,4 @@
+const Game = require('../models/game.model')
 const User = require('../models/user.model')
 
 const getAllUsers = async (req,res) => {
@@ -40,6 +41,7 @@ async function getOneUser(req, res) {
  async function addNewUser(req, res) {
   try {
     const user = await User.create(req.body);
+    //const game = await Game.
     return res.status(200).json({ message: "User created", user: user });
   } catch (error) {
     return res.status(500).send(error.message);
