@@ -20,8 +20,18 @@ import image2 from '../../assets/ar.png'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import Icon from '@mui/material/Icon'
 import SearchIcon from '@mui/icons-material/Search'
+import CardUser from '../../Pages/Dashboard/CardUser/CardUser'
 
-const Header = () => {
+function Body() {
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const result = await getAllUsers()
+      setUsers(result)
+    }
+    getUsers()
+  }, [])
   const [categories, setCategories] = useState([])
 
   const getCategories = async () => {
@@ -34,95 +44,41 @@ const Header = () => {
   }, [])
 
   return (
-    <Box>
+    <Box
+      sx={{
+        backgroundColor: 'white',
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'center',
+        justifyContent: 'space-between',
+        width: '100%',
+        height: '100%',
+      }}
+    >
       <Box
         sx={{
-          backgroundColor: '#404040',
+          backgroundColor: '#D9D9D9',
+          color: 'black',
+          height: '7vh',
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'space-around',
-          width: '100vw',
-          height: '15vh',
+          justifyContent: 'center',
         }}
       >
-        <Button
-          //onClick={handlePlayer}
-          sx={{
-            backgroundColor: '#FF5100',
-            marginLeft: '10px',
-            variant: 'contained',
-            color: 'white',
-            width: '15%',
-            height: '30px',
-          }}
-        >
-          Players
-        </Button>
-        <Button
-          //onClick={handleCategories}
-          sx={{
-            backgroundColor: '#FF5100',
-            marginLeft: '10px',
-            variant: 'contained',
-            color: 'white',
-            width: '15%',
-            height: '30px',
-          }}
-        >
-          Categories
-        </Button>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          <TextField
-            sx={{
-              backgroundColor: 'white',
-              
-            }}
-            id="outlined-basic"
-            label="Search..."
-            variant="standard"
-            color="primary"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment>
-                  <IconButton>
-                    <SearchIcon color="primary" />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Box>
-        <Button
-          //onClick={handleCategories}
-          sx={{
-            backgroundColor: '#FF5100',
-            marginLeft: '10px',
-            variant: 'filled',
-            color: 'white',
-            width: '15%',
-            height: '30px',
-            padding: '0,15px',
-          }}
-        >
-          Messages
-        </Button>
-        <AccountCircleIcon color="primary" />
+        CATEGORIES
       </Box>
-      {/* <Box
+      {/* <CardUser user="Hola"/>  */}
+
+      <Box
         sx={{
           backgroundColor: 'white',
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'center',
-          padding: '10px 5px',
+          padding: '20px 5px',
           width: '100vw',
-          height: '20vh',
+          height: '7vh',
         }}
       >
         {categories.map((category, index) => {
@@ -131,17 +87,19 @@ const Header = () => {
               key={index}
               sx={{
                 color: 'white',
-                width: '200px',
+                width: '250px',
                 height: '200px',
               }}
             >
               <Button
+                variant="contained"
+                color="primary"
                 sx={{
                   padding: '0 15px',
                   height: '50px',
-                  backgroundColor: 'red',
                   color: 'white',
                   width: '50%',
+                  hover: '0',
                 }}
               >
                 {category.category_type}
@@ -149,9 +107,9 @@ const Header = () => {
             </Box>
           )
         })}
-      </Box> */}
+      </Box>
     </Box>
   )
 }
 
-export default Header
+export default Body

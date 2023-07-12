@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Footer from '../Components/Footer/Footer'
 import Header from '../Components/Header/Header'
-
+import Body from '../Components/Body/Body'
 
 function Main() {
 
@@ -12,7 +12,7 @@ function Main() {
   return (
     <div>
       <Header />
-      
+      <Body />
         <Outlet />
       
       <Footer />

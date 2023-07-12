@@ -1,13 +1,13 @@
-/* import api from './config'
+ import api from './config'
 
-const getGames = async () => {
+const getAllGames = async () => {
   try {
-    const games = await api.get('/users')
+    const games = await api.get('/games')
     return games.data
   } catch (error) {
     return error.response.data
   }
 }
 
-export { getGames }
- */
+export { getAllGames }
+  

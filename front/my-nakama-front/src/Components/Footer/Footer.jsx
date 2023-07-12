@@ -17,7 +17,7 @@ function Footer() {
         backgroundColor: '#404040',
         display: 'flex',
         width: '100vw',
-        height: '25vh',
+        height: '15vh',
       }}
     ></Box>
   )

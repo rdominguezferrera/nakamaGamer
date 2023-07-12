@@ -1,8 +1,8 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
-import { getAllCategories} from '../../services/category.services'
-import { getAllUsers} from '../../services/user.services'
-import { Box } from '@mui/material'
+import { useState, useEffect } from 'react'
+import { getAllCategories } from '../../services/category.services'
+import { getAllUsers } from '../../services/user.services'
+import { Box, Typography } from '@mui/material'
 import CardUser from '../../Pages/Dashboard/CardUser/CardUser'
 import {
   Button,
@@ -15,154 +15,62 @@ import {
   TextField,
 } from '@mui/material'
 
-
 function Dashboard() {
+  const [users, setUsers] = useState([])
 
-const [ users, setUsers] = useState([])
+  useEffect(() => {
+    const getUsers = async () => {
+      const result = await getAllUsers()
+      setUsers(result)
+    }
+    getUsers()
+  }, [])
+  const [categories, setCategories] = useState([])
 
-useEffect(()=> {
-  const getUsers = async () => {
-    const result = await getAllUsers()
-    setUsers(result)
+  const getCategories = async () => {
+    const result = await getAllCategories()
+    setCategories(result)
   }
- getUsers()
-},[])
 
-//console.log(categories)
-console.log(users)
+  useEffect(() => {
+    getCategories()
+  }, [])
+
+  //console.log(categories)
+  console.log(users)
 
   return (
-    <Box
-      className="card"
-      sx={{
-        backgroundColor: '#white',
-        display: 'flex',
-        flexDirection: 'row',
-        alignContent: 'center',
-        justifyContent: 'center',
-      }}
-    >
-        <CardUser user="Hola"/> 
-      {/* {users.map((user) => {
-        return <CardUser key={user.id} user={user} />
-      })} */}
-
-      {/*     <Card
-        className="card"
+    <>
+      <Typography
         sx={{
-          backgroundColor: '#00BFA5',
+          backgroundColor: '#D9D9D9',
+          color: 'black',
+          height: '7vh',
           display: 'flex',
-          flexDirection: 'column',
-          alignContent: 'center',
+          flexDirection: 'row',
+          alignItems: 'center',
           justifyContent: 'center',
-          width: '90%',
-          height: '400px',
-          marginLeft: '350px',
-          marginTop: '30px',
+          padding: '5px',
         }}
       >
-        <CardHeader sx={{ backgroundColor: '#FF5100' }} title="Login">
-          Login
-        </CardHeader>
-        <CardContent sx={{ backgroundColor: '#404040' }}>
-          <TextField
-            //onChange={handleEmail}
-            fullWidth
-            margin="dense"
-            label="email"
-            type="email"
-            variant="standard"
-          ></TextField>
-        </CardContent>
-      </Card>
-
-      <Card
-        className="card"
+        PLAYERS
+      </Typography>
+      <Divider />
+      <Box
         sx={{
-          backgroundColor: '#00BFA5',
           display: 'flex',
-          flexDirection: 'column',
-          alignContent: 'center',
-          justifyContent: 'center',
-          width: '70%',
-          height: '400px',
-          marginLeft: '350px',
-          marginTop: '30px',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-around',
+          flexWrap: 'wrap',
+          padding: '40px 5px',
         }}
       >
-        <CardHeader sx={{ backgroundColor: '#FF5100' }} title="Login">
-          Login
-        </CardHeader>
-        <CardContent sx={{ backgroundColor: '#404040' }}>
-          <TextField
-            //onChange={handleEmail}
-            fullWidth
-            margin="dense"
-            label="email"
-            type="email"
-            variant="standard"
-          ></TextField>
-        </CardContent>
-      </Card>
-
-      <Card
-        className="card"
-        sx={{
-          backgroundColor: '#00BFA5',
-          display: 'flex',
-          flexDirection: 'column',
-          alignContent: 'center',
-          justifyContent: 'center',
-          width: '70%',
-          height: '400px',
-          marginLeft: '350px',
-          marginTop: '30px',
-        }}
-      >
-        <CardHeader sx={{ backgroundColor: '#FF5100' }} title="Login">
-          Login
-        </CardHeader>
-        <CardContent sx={{ backgroundColor: '#404040' }}>
-          <TextField
-            //onChange={handleEmail}
-            fullWidth
-            margin="dense"
-            label="email"
-            type="email"
-            variant="standard"
-          ></TextField>
-        </CardContent>
-      </Card>
-
-      <Card
-        className="card"
-        sx={{
-          backgroundColor: '#00BFA5',
-          display: 'flex',
-          flexDirection: 'column',
-          alignContent: 'center',
-          justifyContent: 'center',
-          width: '70%',
-          height: '400px',
-          marginLeft: '350px',
-          marginTop: '30px',
-        }}
-      >
-        <CardHeader sx={{ backgroundColor: '#FF5100' }} title="Login">
-          Login
-        </CardHeader>
-        <CardContent sx={{ backgroundColor: '#404040' }}>
-          <TextField
-            //onChange={handleEmail}
-            fullWidth
-            margin="dense"
-            label="email"
-            type="email"
-            variant="standard"
-          ></TextField>
-        </CardContent>
-      </Card> */}
-    </Box>
+        {users.map((user) => {
+          return <CardUser key={user.id} user={user} />
+        })}
+      </Box>
+    </>
   )
 }
 

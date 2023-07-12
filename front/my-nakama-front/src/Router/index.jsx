@@ -5,8 +5,9 @@ import Signup from '../Pages/Signup/Signup'
 import Login from '../Pages/Login/Login'
 import Main from '../Layout/indexmain'
 import Dashboard from '../Pages/Dashboard/Dashboard'
-/*import Dashboard from '../Pages/Dashboard/Dashboard'
-import SelectGame from '../Pages/SelectGame/SelectGame'*/
+import SelectGame from '../Pages/SelectGame/SelectGame'
+import ViewPlayers from '../Pages/ViewPlayers/ViewPlayers'
+
 
 const router = createBrowserRouter([
   {
@@ -33,8 +34,13 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard />,
       },
+      {
+        path: '/dashboard/games',
+        element: <SelectGame />,
+      },
     ],
   },
+ 
 ])
 
 export default router
