@@ -1,4 +1,6 @@
+const Category = require("../models/category.model");
 const Game = require("../models/game.model");
+const User = require("../models/user.model");
 
 const getAllGames = async (req, res) => {
   try {
@@ -31,6 +33,8 @@ async function getOneGame(req, res) {
  async function addNewGame(req, res) {
   try {
     const game = await Game.create(req.body)
+    const category = await Category.findByPk(req.body.categoryId)
+    await game.addCategory(category)
     return res.status(200).json({ message: "game created", game: game });
   } catch (error) {
     return res.status(500).send(error.message);
@@ -73,6 +77,20 @@ async function deleteGame(req, res) {
     return res.status(500).send(error.message);
   }
 }
+const getGameUsers = async (req,res) => {
+  try {
+     const game = await Game.findOne({
+      where: {
+        game_title: req.params.game
+      },
+      include: User
+    })
+     return res.status(200).json(game)
+  } catch (error) {
+     return res.status(500).send(error.message);
+    
+  }
+}
 
 
 module.exports = {
@@ -81,4 +99,5 @@ module.exports = {
   addNewGame,
   updateGame,
   deleteGame,
+  getGameUsers
 };

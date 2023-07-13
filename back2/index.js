@@ -11,7 +11,7 @@ const fullConnection = async () => {
 
         await checkConnection()
         addRelationshipsModells()
-        await checkSyncModels('alter')
+        await checkSyncModels()
     } catch (error) {
         console.log('error')
         throw new Error(error)

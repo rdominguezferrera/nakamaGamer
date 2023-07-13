@@ -1,4 +1,5 @@
 const Category = require("../models/category.model");
+const Game = require("../models/game.model");
 
 const getAllCategories = async (req, res) => {
   try {
@@ -76,7 +77,21 @@ async function deleteCategory(req, res) {
     return res.status(500).send(error.message);
   }
 }
+const getCategoryGames = async (req,res) => {
 
+  try {
+    const category = await Category.findOne({
+      where: {
+        category_type: req.params.category
+      },
+      include: Game
+    })
+    return res.status(200).json(category)
+  } catch (error) {
+    return res.status(500).send(error.message);
+    
+  }
+}
 
 module.exports = {
   getAllCategories,
@@ -84,4 +99,5 @@ module.exports = {
   addNewCategory,
   updateCategory,
   deleteCategory,
+  getCategoryGames,
 };

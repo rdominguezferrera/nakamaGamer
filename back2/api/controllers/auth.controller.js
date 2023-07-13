@@ -7,9 +7,18 @@ const signup = async (req, res) => {
   //console.log(req.body)
   try {
     req.body.user_password = bcrypt.hashSync(req.body.user_password, 10)
-    const user = await User.create(req.body.game)
-    const game = await Game.setInfo()
-    console.log(user)
+    const findUser = await User.findOne({
+      where: {
+        user_email: req.body.user_email
+      },
+    })
+    console.log(findUser)
+    if(findUser) {
+      return res.status(404).send('Usuario already exist')
+    }
+    const user = await User.create(req.body)
+    const game = await Game.findByPk(req.body.gameId)
+    await user.addGame(game)
     const token = jwt.sign({ email: user.user_email }, "secret", {
       expiresIn: "7d",
     })

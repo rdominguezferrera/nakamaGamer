@@ -2,6 +2,7 @@ const { connection } = require('../../database/index.js')
 const { DataTypes } = require('sequelize')
 
 const User = connection.define("user", {
+  
   user_firstname: {
     type: DataTypes.STRING,
     allowNull: false,
