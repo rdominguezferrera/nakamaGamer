@@ -40,7 +40,7 @@ function Dashboard() {
   console.log(users)
 
   return (
-    <>
+    <Box>
       <Typography
         sx={{
           backgroundColor: '#D9D9D9',
@@ -50,7 +50,7 @@ function Dashboard() {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '5px',
+          padding: '5px'
         }}
       >
         PLAYERS
@@ -63,14 +63,14 @@ function Dashboard() {
           alignItems: 'center',
           justifyContent: 'space-around',
           flexWrap: 'wrap',
-          padding: '40px 5px',
+          padding: '40px 5px'
         }}
       >
         {users.map((user) => {
           return <CardUser key={user.id} user={user} />
         })}
       </Box>
-    </>
+    </Box>
   )
 }
 

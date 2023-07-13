@@ -1,4 +1,38 @@
 #root {
   margin: 0;
   text-align: center;
+  
 }
+
+.login {
+
+    background-image: url('../src/assets/smashwall.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    filter:sepia(.15)
+    /*background-image: url('../src/assets/personajes-populares-videojuegos.webp');*/
+   /* background-image: url('../src/assets/personajes.jpg_1330518127.webp');*/
+   /*background-image: url('../src/assets/a.jpg');*/
+  
+}
+
+.lateral {
+
+  background-image: url('../src/assets/Planeta-Namek.webp');
+  background-repeat: no-repeat;
+  background-size:cover;
+  filter: sepia(.10)
+
+}
+
+
+
+
+/*.ok {
+
+  background-image: url('../src/assets/yes.jpg');
+  background-repeat: no-repeat;
+  border: 2px solid red;
+   
+
+}*/

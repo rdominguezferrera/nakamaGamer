@@ -84,24 +84,46 @@ const Signup = () => {
   }
 
   return (
-    <Box>
+    <Box 
+    className="lateral"
+     sx={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'center',
+        justifyContent: 'center',}}
+
+    
+    
+    
+    >
+
+
+    <Box className="ok"></Box>
+
+
+
       <Box
         className="signup"
         sx={{
-          backgroundColor: 'white',
+         
           display: 'flex',
           flexDirection: 'column',
           alignContent: 'center',
+          justifyContent: 'space-around',
           width: '75%',
-          marginLeft: '120px',
-          marginTop: '30px',
+          marginLeft: '230px',
+          marginTop: '50px',
         }}
       >
-        <Card>
+        <Card
+        sx={{ border: '2px solid black' }}
+        
+        >
           <CardHeader sx={{ backgroundColor: '#FF5100' }} title="Sign up">
             Sign up
           </CardHeader>
-          <CardContent sx={{ backgroundColor: '#00BFA5' }}>
+          <CardContent sx={{ backgroundColor: '#white' }}>
             <TextField
               onChange={handleFirstName}
               fullWidth
@@ -140,9 +162,9 @@ const Signup = () => {
                   label="Age"
                   onChange={handleGame}
                 >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>Counter Strike</MenuItem>
+                  <MenuItem value={20}>League of Legend</MenuItem>
+                  <MenuItem value={30}>Supermario Bros</MenuItem>
                 </Select>
               </FormControl>
             </Box>

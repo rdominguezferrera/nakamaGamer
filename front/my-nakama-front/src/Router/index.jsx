@@ -9,6 +9,7 @@ import SelectGame from '../Pages/SelectGame/SelectGame'
 import ViewPlayers from '../Pages/ViewPlayers/ViewPlayers'
 
 
+
 const router = createBrowserRouter([
   {
     // LOGIN AND SIGN UP
@@ -35,12 +36,16 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: '/dashboard/games',
+        path: '/dashboard/category/:category',
         element: <SelectGame />,
       },
+      {
+        path: '/dashboard/game/:game',
+        element: <ViewPlayers />,
+      },
+      
     ],
   },
- 
 ])
 
 export default router

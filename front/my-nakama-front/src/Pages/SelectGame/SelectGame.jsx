@@ -20,20 +20,88 @@ import { getAllGames } from '../../services/game.services'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import Icon from '@mui/material/Icon'
 import SearchIcon from '@mui/icons-material/Search'
+import { useParams } from 'react-router-dom'
+import { getGamesByCategoryType } from '../../services/game.services'
 
 function SelectGame() {
+
   const [games, setGames] = useState([])
+  const [ allgames,setAllGames] = useState([])
+  const {category} = useParams()
 
   const getGames = async () => {
     const result = await getAllGames()
+    setAllGames(result)
+  }
+
+  const getGamesByCategory = async () => {
+    const result = await getGamesByCategoryType(category)
     setGames(result)
   }
 
   useEffect(() => {
     getGames()
-  }, [])
+    getGamesByCategory()
+  }, [category])
+  console.log(games.games)
 
-  return (
+if(games.length !== 0){
+  if(category === 'all'){
+
+    return (
+      <Box>
+        <Box>
+          <Box
+            sx={{
+              backgroundColor: '#D9D9D9',
+              color: 'black',
+              height: '7vh',
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '5px',
+            }}
+          >
+            
+              CATEGORY:{category.toUpperCase()}
+            
+          </Box>
+
+          <Box
+            sx={{
+              backgroundColor: 'white',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+              width: '100vw',
+              height: '75vh',
+            }}
+          >
+            {allgames.map((game, index) => {
+              return (
+                <Card
+                  key={index}
+                  sx={{
+                    width: '10%',
+                    height: '30%',
+                    backgroundColor: 'aquamarine',
+                  }}
+                >
+                  <Link key={index} to={`/dashboard/game/${game.game_title}`}>
+                    <Typography>{game.game_title.toUpperCase()}</Typography>
+                  </Link>
+                </Card>
+              )
+            })}
+          </Box>
+        </Box>
+      </Box>
+    )
+  }  
+  else {
+    return (
     <Box>
       <Box>
         <Box
@@ -48,7 +116,7 @@ function SelectGame() {
             padding: '5px'
           }}
         >
-          SHOOTER
+         CATEGORY: {category.toUpperCase()}
         </Box>
 
         <Box
@@ -62,38 +130,22 @@ function SelectGame() {
             height: '75vh',
           }}
         >
-          {games.map((game, index) => {
+          {games.games.map((game, index) => {
             return (
-              <Card key={index} sx={{
-                width:'10%',
-                height:'30%',
-                backgroundColor:'aquamarine',
-              }}>
-                <Typography>{game.game_title.toUpperCase()}</Typography>
-              </Card>
-              /*   <Box
-                key={index}
-                sx={{
-                  color: 'white',
-                  width: '250px',
-                  height: '200px',
-                }}
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  
+              <Card
+             
                   key={index}
                   sx={{
-                    padding: '0 15px',
-                    height: '50px',
-                    color: 'white',
-                    width: '50%',
+                    width: '10%',
+                    height: '30%',
+                    backgroundColor: 'aquamarine',
+                   
                   }}
                 >
-                  
-                </Button>
-              </Box> */
+                  <Link key={index} to={`/dashboard/game/${game.game_title}`}>
+                    <Typography>{game.game_title.toUpperCase()}</Typography>
+                  </Link>
+                </Card>
             )
           })}
         </Box>
@@ -101,7 +153,7 @@ function SelectGame() {
 
       
     </Box>
-  )
+  )}}
 }
 
 export default SelectGame

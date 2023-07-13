@@ -91,19 +91,22 @@ function Body() {
                 height: '200px',
               }}
             >
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{
-                  padding: '0 15px',
-                  height: '50px',
-                  color: 'white',
-                  width: '50%',
-                  hover: '0',
-                }}
-              >
-                {category.category_type}
-              </Button>
+              <Link to = {`/dashboard/category/${category.category_type}`}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  style={{ backgroundColor: 'blue' }}
+                  sx={{
+                    padding: '0 15px',
+                    height: '50px',
+                    color: 'white',
+                    width: '50%',
+                   
+                  }}
+                >
+                  {category.category_type}
+                </Button>
+              </Link>
             </Box>
           )
         })}

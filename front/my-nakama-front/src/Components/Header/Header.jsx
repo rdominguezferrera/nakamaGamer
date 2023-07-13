@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 import { getAllCategories } from '../../services/category.services'
 import { getAllUsers } from '../../services/user.services'
 import { useState, useEffect } from 'react'
-import { InputAdornment, TextField } from '@mui/material'
+import { InputAdornment, Menu, MenuItem, TextField } from '@mui/material'
 import Avatar from '@mui/material/Avatar'
 import Stack from '@mui/material/Stack'
 import image from '../../assets/man.jpg'
@@ -20,8 +20,20 @@ import image2 from '../../assets/ar.png'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import Icon from '@mui/material/Icon'
 import SearchIcon from '@mui/icons-material/Search'
-
+import EmailIcon from '@mui/icons-material/Email'
+//const settings = ['Profile', 'Account', 'Language','Settings','Cookies Preference','Logout']
 const Header = () => {
+    const [anchorElNav, setAnchorElNav] = React.useState(null)
+    const [anchorElUser, setAnchorElUser] = React.useState(null)
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null)
+  }
+    const handleCloseUserMenu = () => {
+      setAnchorElUser(null)
+    }
+
+
+
   const [categories, setCategories] = useState([])
 
   const getCategories = async () => {
@@ -43,35 +55,9 @@ const Header = () => {
           alignItems: 'center',
           justifyContent: 'space-around',
           width: '100vw',
-          height: '15vh',
+          height: '10vh',
         }}
       >
-        <Button
-          //onClick={handlePlayer}
-          sx={{
-            backgroundColor: '#FF5100',
-            marginLeft: '10px',
-            variant: 'contained',
-            color: 'white',
-            width: '15%',
-            height: '30px',
-          }}
-        >
-          Players
-        </Button>
-        <Button
-          //onClick={handleCategories}
-          sx={{
-            backgroundColor: '#FF5100',
-            marginLeft: '10px',
-            variant: 'contained',
-            color: 'white',
-            width: '15%',
-            height: '30px',
-          }}
-        >
-          Categories
-        </Button>
         <Box
           sx={{
             display: 'flex',
@@ -81,7 +67,7 @@ const Header = () => {
           <TextField
             sx={{
               backgroundColor: 'white',
-              
+              marginLeft: '0px',
             }}
             id="outlined-basic"
             label="Search..."
@@ -99,22 +85,79 @@ const Header = () => {
           />
         </Box>
         <Button
+          variant="contained"
+          color="primary"
+          style={{
+            backgroundColor: '#FF5100',
+            /*  display: 'flex',
+            flexDirection: 'row',
+            just ifyContent: 'space-between',
+            marginLeft:'20px' */
+          }}
+          endIcon={
+            <IconButton>
+              <EmailIcon color="primary" />
+            </IconButton>
+          }
           //onClick={handleCategories}
           sx={{
-            backgroundColor: '#FF5100',
-            marginLeft: '10px',
-            variant: 'filled',
+            marginLeft: '30px',
             color: 'white',
             width: '15%',
             height: '30px',
             padding: '0,15px',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
           }}
         >
           Messages
         </Button>
         <AccountCircleIcon color="primary" />
-      </Box>
-      {/* <Box
+
+
+       {/*  {     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+
+        { <Menu
+          id="menu-appbar"
+          anchorEl={anchorElNav}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+          open={Boolean(anchorElNav)}
+          onClose={handleCloseNavMenu}
+          sx={{
+            display: { xs: 'block', md: 'none' },
+          }}
+        >
+          {pages.map((page) => (
+            <MenuItem key={page} onClick={handleCloseNavMenu}>
+              <Typography textAlign="center">{page}</Typography>
+            </MenuItem>
+          ))}
+        </Menu>
+         }
+      </Box> }
+
+
+
+      { <Box
         sx={{
           backgroundColor: 'white',
           display: 'flex',
@@ -148,8 +191,8 @@ const Header = () => {
               </Button>
             </Box>
           )
-        })}
-      </Box> */}
+        })} */}
+      </Box> 
     </Box>
   )
 }
