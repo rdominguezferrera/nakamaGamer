@@ -48,7 +48,7 @@ const login = async (req, res) => {
         expiresIn: "7d",
       });
       const role = user.user_role;
-      const id = user.user_id;
+      const id = user.id;
       return res.status(200).json({ token, role, id });
     })
   } catch (error) {

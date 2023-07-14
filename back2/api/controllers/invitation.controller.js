@@ -31,6 +31,7 @@ async function getOneInvitation(req, res) {
 async function addNewInvitation(req, res) {
   try {
     const invitation = await Invitation.create(req.body);
+    
     return res
       .status(200)
       .json({ message: "invitation created", invitation: invitation });
