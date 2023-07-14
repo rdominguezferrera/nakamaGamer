@@ -6,10 +6,11 @@
 
 .login {
 
-    background-image: url('../src/assets/smashwall.jpg');
+    background-image: url('../src/assets/way.jpg');
     background-repeat: no-repeat;
     background-size:cover;
-    filter:sepia(.15)
+    filter:sepia(.50);
+    background:
     /*background-image: url('../src/assets/personajes-populares-videojuegos.webp');*/
    /* background-image: url('../src/assets/personajes.jpg_1330518127.webp');*/
    /*background-image: url('../src/assets/a.jpg');*/

@@ -36,7 +36,6 @@ function Dashboard() {
     getCategories()
   }, [])
 
-  //console.log(categories)
   console.log(users)
 
   return (

@@ -84,29 +84,21 @@ const Signup = () => {
   }
 
   return (
-    <Box 
-    className="lateral"
-     sx={{
+    <Box
+      className="lateral"
+      sx={{
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
         alignContent: 'center',
-        justifyContent: 'center',}}
-
-    
-    
-    
+        justifyContent: 'center',
+      }}
     >
-
-
-    <Box className="ok"></Box>
-
-
+      <Box className="ok"></Box>
 
       <Box
         className="signup"
         sx={{
-         
           display: 'flex',
           flexDirection: 'column',
           alignContent: 'center',
@@ -114,12 +106,10 @@ const Signup = () => {
           width: '75%',
           marginLeft: '230px',
           marginTop: '50px',
+          opacity:'0.9'
         }}
       >
-        <Card
-        sx={{ border: '2px solid black' }}
-        
-        >
+        <Card sx={{ border: '2px solid black' }}>
           <CardHeader sx={{ backgroundColor: '#FF5100' }} title="Sign up">
             Sign up
           </CardHeader>
@@ -151,9 +141,10 @@ const Signup = () => {
               variant="standard"
             ></TextField>
             <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
+              <FormControl  
+                fullWidth>
                 <InputLabel id="demo-simple-select-label">
-                  favourite games
+                favourite games
                 </InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
@@ -163,8 +154,11 @@ const Signup = () => {
                   onChange={handleGame}
                 >
                   <MenuItem value={10}>Counter Strike</MenuItem>
-                  <MenuItem value={20}>League of Legend</MenuItem>
+                  <MenuItem value={20}>League of Legends</MenuItem>
                   <MenuItem value={30}>Supermario Bros</MenuItem>
+                  <MenuItem value={30}>Valorant</MenuItem>
+                  <MenuItem value={30}>Tetris</MenuItem>
+                  <MenuItem value={30}>Zelda</MenuItem>
                 </Select>
               </FormControl>
             </Box>

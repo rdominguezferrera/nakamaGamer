@@ -61,6 +61,7 @@ const Login = () => {
           marginLeft: '370px',
           marginTop: '30px',
           padding: '0 180px',
+          opacity:'0.9'
         }}
       >
         <Card sx={{ border: '2px solid black' }}>

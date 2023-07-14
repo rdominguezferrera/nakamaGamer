@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 import Box from '@mui/material/Box'
-import { Button, Card, CardContent, CardHeader,Menu,MenuItem,TextField,Typography } from '@mui/material'
+import { Button, Card, CardContent, CardHeader,Typography } from '@mui/material'
 import image from '../../../assets/testimonial-avatar.jpg'
 import Avatar from '@mui/material/Avatar'
 import Stack from '@mui/material/Stack'
@@ -14,7 +13,7 @@ function CardUser({user}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [inviting, setInviting] = React.useState(false)
-  const [yes, setYes] = React.useState(false)
+  const [yes, setYes] = React.useState(null)
 
  const handleConfirmation = () => {
   if(yes) {
@@ -55,7 +54,25 @@ function CardUser({user}) {
           Send Invitation
         </Button>
       )
-    } else { 
+    } else if (yes) {
+         return (
+           <Box>
+             <p>Invitation succesfully sended</p>
+           </Box>
+         )
+
+    } else if (yes === false) {
+      return(
+
+       <Box>
+         <p>Invitation rejected</p>
+       </Box>
+      )
+    }
+    
+    
+    
+    else { 
       return (
         <>
           <p>Are you sure?</p>
@@ -157,23 +174,23 @@ function CardUser({user}) {
         }}
       >
         <Typography
-          //onChange={handleFirstName}
-          variant="h7"
+         
+          variant="h6"
           component="h2"
         >
           Firstname: {user.user_firstname}
         </Typography>
 
         <Typography
-          //onChange={handleNickName}
-          variant="h7"
+          
+          variant="h6"
           component="h2"
         >
           Discord nickname: {user.user_discord_user}
         </Typography>
         <Typography
-          //onChange={handleEmail}
-          variant="h7"
+        
+          variant="h6"
           component="h2"
         >
           Email: {user.user_email}

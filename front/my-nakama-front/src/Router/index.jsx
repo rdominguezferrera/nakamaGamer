@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Root from '../Layout/indexsignupandlogin'
-import Home from '../Pages/Home/Home'
 import Signup from '../Pages/Signup/Signup'
 import Login from '../Pages/Login/Login'
 import Main from '../Layout/indexmain'
 import Dashboard from '../Pages/Dashboard/Dashboard'
 import SelectGame from '../Pages/SelectGame/SelectGame'
 import ViewPlayers from '../Pages/ViewPlayers/ViewPlayers'
+import Profile from '../Pages/Profile/Profile'
 
 
 
@@ -43,7 +43,16 @@ const router = createBrowserRouter([
         path: '/dashboard/game/:game',
         element: <ViewPlayers />,
       },
-      
+    ],
+  },
+  {
+    path: '/profile',
+    element: <Main />,
+    children: [
+      {
+        path: '/profile',
+        element: <Profile />,
+      },
     ],
   },
 ])
