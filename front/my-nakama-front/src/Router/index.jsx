@@ -1,7 +1,7 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from "react-router-dom";
 import Root from '../Layout/indexsignupandlogin'
-import Signup from '../Pages/Signup/Signup'
 import Login from '../Pages/Login/Login'
+import Signup from '../Pages/Signup/Signup'
 import Main from '../Layout/indexmain'
 import Dashboard from '../Pages/Dashboard/Dashboard'
 import SelectGame from '../Pages/SelectGame/SelectGame'
@@ -14,6 +14,7 @@ import Home from '../Pages/Home/Home'
 
 const router = createBrowserRouter([
   {
+
     // LOGIN AND SIGN UP
 
     path: '/',
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
   },
 
   // MAIN
+
   {
     path: '/dashboard',
     element: <Main />,
@@ -74,12 +76,9 @@ const router = createBrowserRouter([
         element: <Message />,
       },
     ],
-  },
+  }, 
 ])
 
+
+
 export default router
-
-
-
-
-    

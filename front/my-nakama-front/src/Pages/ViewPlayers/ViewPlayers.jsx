@@ -1,9 +1,9 @@
 import * as React from 'react'
-import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { useState, useEffect } from 'react'
-import { Divider, InputAdornment, TextField } from '@mui/material'
-import { getAllGames, getUsersByGame } from '../../services/game.services'
+import { Divider } from '@mui/material'
+import Box from '@mui/material/Box'
+import { getUsersByGame } from '../../services/game.services'
 import CardUser from '../Dashboard/CardUser/CardUser'
 import { useParams } from 'react-router-dom'
 

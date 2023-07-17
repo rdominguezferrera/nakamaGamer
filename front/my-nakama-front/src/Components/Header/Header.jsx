@@ -1,7 +1,7 @@
 import * as React from 'react'
-import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
 import { Link } from 'react-router-dom'
 import { getAllCategories } from '../../services/category.services'
 import { useState, useEffect } from 'react'

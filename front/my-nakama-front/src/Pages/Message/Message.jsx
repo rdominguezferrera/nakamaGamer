@@ -1,12 +1,10 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
-import { Link } from 'react-router-dom'
 import { getMessage } from '../../services/user.services'
 import { useState, useEffect } from 'react'
 import Avatar from '@mui/material/Avatar'
 import image2 from '../../assets/testimonial-avatar.jpg'
 import { Button, Card, CardContent, CardHeader, IconButton, Stack, Typography } from '@mui/material'
-import EmailIcon from '@mui/icons-material/Email'
 import CancelSharpIcon from '@mui/icons-material/CancelSharp'
 import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp'
 
