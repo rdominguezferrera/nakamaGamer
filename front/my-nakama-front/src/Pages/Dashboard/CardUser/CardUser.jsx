@@ -130,13 +130,13 @@ function CardUser({user}) {
     <Card
       sx={{
         width: '300px',
-        height: '320px',
+        height: '400px',
         backgroundColor: '#00BFA5',
         border: '1px solid',
         display: 'flex',
         flexDirection: 'column',
         margin: '10px 10px',
-        boxShadow: '20px -16px 5px yellow',
+        
       }}
     >
       <Stack
@@ -174,26 +174,48 @@ function CardUser({user}) {
         }}
       >
         <Typography
-         
+          sx={{
+            display: 'flex',
+            flexDirection: 'colum',
+            margin: '10px 10px',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+          }}
           variant="h6"
           component="h2"
         >
-          Firstname: {user.user_firstname}
+          <b>Firstname:</b>
+          {user.user_firstname}
         </Typography>
 
         <Typography
-          
+          sx={{
+            display: 'flex',
+            flexDirection: 'colum',
+            margin: '10px 10px',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+          }}
           variant="h6"
           component="h2"
         >
-          Discord nickname: {user.user_discord_user}
+          <b>Discord nickname:</b>
+          {user.user_discord_user}
         </Typography>
         <Typography
         
+          sx={{
+            display: 'flex',
+            flexDirection: 'colum',
+            margin: '10px 10px',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+          }}
           variant="h6"
           component="h2"
         >
-          Email: {user.user_email}
+          <b>Email: </b>
+          {user.user_email}
         </Typography>
       </CardContent>
       <Box
@@ -204,8 +226,7 @@ function CardUser({user}) {
           justifyContent: 'space-around',
         }}
       >
-        { handleInvitation() }
-
+        {handleInvitation()}
       </Box>
     </Card>
   )

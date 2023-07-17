@@ -8,14 +8,16 @@ import {
   CardContent,
   CardHeader,
   Divider,
+  Icon,
   IconButton,
+  InputAdornment,
   TextField,
 } from '@mui/material'
-import { Email, Lock, Visibility, VisibilityOff } from '@mui/icons-material'
-import { Link } from 'react-router-dom'
+import { Lock, Visibility, VisibilityOff } from '@mui/icons-material'
 import { login } from '../../services/auth.services'
 
 const Login = () => {
+  const [isPassVisible, setIsPassVisible] = useState(false)
   const [user_email, setEmail] = useState('')
   const [user_password, setPassword] = useState('')
   const navigate = useNavigate()
@@ -31,7 +33,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     const body = { user_email, user_password }
-    const post = await login(body) //// se queda aqui
+    const post = await login(body) 
     if (post === 200) {
       navigate('/dashboard')
     } else {
@@ -44,9 +46,10 @@ const Login = () => {
       className="login"
       sx={{
         height: '100vh',
+        widht: '100%',
         display: 'flex',
-        flexDirection: 'column',
-        alignContent: 'center',
+        flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'center',
       }}
     >
@@ -58,10 +61,9 @@ const Login = () => {
           justifyContent: 'center',
           width: '35%',
           height: '300px',
-          marginLeft: '370px',
-          marginTop: '30px',
+          marginBottom: '50px',
           padding: '0 180px',
-          opacity:'0.9'
+          opacity: '0.9',
         }}
       >
         <Card sx={{ border: '2px solid black' }}>
@@ -83,8 +85,29 @@ const Login = () => {
               fullWidth
               margin="dense"
               label="password"
-              type="email"
+              type={isPassVisible ? 'text' : 'password'}
               variant="standard"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment>
+                    <Icon>
+                      <Lock />
+                    </Icon>
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment>
+                    <IconButton
+                      onClick={() => {
+                        setIsPassVisible((oldState) => !oldState)
+                      }}
+                    >
+                      {isPassVisible ? <Visibility /> : <VisibilityOff />}
+                      
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             ></TextField>
           </CardContent>
         </Card>
@@ -98,10 +121,10 @@ const Login = () => {
           }}
         >
           <Button
-            onClick={handleLogin}
             sx={{ backgroundColor: '#FF5100', marginLeft: '10px' }}
             variant="contained"
             color="error"
+            onClick={handleLogin}
           >
             Login
           </Button>

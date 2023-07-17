@@ -9,7 +9,7 @@ function Root() {
     <div>
       <HeaderSignupAndLogin />
       
-        <Outlet />
+      <Outlet />
       
       <Footer />
     </div>

@@ -18,4 +18,15 @@ const getProfile = async (id) => {
     return error.response.data
   }
 }
-export { getAllUsers, getProfile }
+
+
+const getMessage = async (id) => {
+  try {
+    
+    const users = await api.get(`/users/${id}`)
+    return users.data
+  } catch (error) {
+    return error.response.data
+  }
+}
+export { getAllUsers, getProfile, getMessage }

@@ -12,6 +12,7 @@ function Profile() {
 const [user,setUser] = useState({}) 
 const userId = localStorage.getItem('id')
 const getMyProfile = async () => {
+
     try {
         const result = await getProfile(userId)
         setUser(result)
@@ -24,6 +25,7 @@ const getMyProfile = async () => {
 useEffect(() => {
     getMyProfile()
 },[])
+
 console.log(user.user_firstname)
 
 
@@ -43,7 +45,6 @@ console.log(user.user_firstname)
           height: '500px',
           backgroundColor: '#00BFA5',
           border: '1px solid',
-          //boxShadow: '20px -16px 5px yellow'
         }}
       >
         <Stack
@@ -64,29 +65,41 @@ console.log(user.user_firstname)
             }}
           />
         </Stack>
-        <CardHeader sx={{ backgroundColor: '#FF5100', height: '5%' }}
-          title="hola"/>
-          
-        
+        <CardHeader
+          sx={{ backgroundColor: '#FF5100', height: '5%' }}
+          title={user.user_nickname}
+        />
 
         <CardContent
-          sx=
-          {{
+          sx={{
             backgroundColor: '#00BFA5',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            padding: '0',
+            padding: '50px 3px',
             justifyContent: 'center',
-          }}>
-          <Typography variant="h6" component="h2">
-            Firstname: 
+          }}
+        >
+          <Typography sx = {{
+            marginTop:'10px'
+          }}variant="h6" component="h2">
+            <b>Firstname: </b>
+            {user.user_firstname}
           </Typography>
           <Typography variant="h6" component="h2">
-            Discord nickname: 
+            <b>Lastname: </b>
+            {user.user_lastname}
           </Typography>
           <Typography variant="h6" component="h2">
-            Email: 
+            <b>DNI:</b> {user.user_DNI}
+          </Typography>
+          <Typography variant="h6" component="h2">
+            <b>Discord nickname: </b>
+            {user.user_discord_user}
+          </Typography>
+          <Typography variant="h6" component="h2">
+            <b>Email:</b>
+            {user.user_email}
           </Typography>
         </CardContent>
       </Card>

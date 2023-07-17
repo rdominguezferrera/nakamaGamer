@@ -88,9 +88,10 @@ const Signup = () => {
       className="lateral"
       sx={{
         height: '100vh',
+        widht: '100%',
         display: 'flex',
-        flexDirection: 'column',
-        alignContent: 'center',
+        flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'center',
       }}
     >
@@ -103,10 +104,11 @@ const Signup = () => {
           flexDirection: 'column',
           alignContent: 'center',
           justifyContent: 'space-around',
-          width: '75%',
-          marginLeft: '230px',
-          marginTop: '50px',
-          opacity:'0.9'
+          width: '35%',
+          padding: '0 180px',
+          //marginLeft: '230px',
+          //marginTop: '50px',
+          opacity: '0.9',
         }}
       >
         <Card sx={{ border: '2px solid black' }}>
@@ -141,10 +143,9 @@ const Signup = () => {
               variant="standard"
             ></TextField>
             <Box sx={{ minWidth: 120 }}>
-              <FormControl  
-                fullWidth>
+              <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">
-                favourite games
+                  favourite games
                 </InputLabel>
                 <Select
                   labelId="demo-simple-select-label"

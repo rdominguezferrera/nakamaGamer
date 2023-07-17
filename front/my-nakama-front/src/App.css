@@ -3,6 +3,15 @@
   text-align: center;
   
 }
+.home {
+
+
+      background-image: url('../src/assets/asin.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      
+
+}
 
 .login {
 
@@ -10,11 +19,8 @@
     background-repeat: no-repeat;
     background-size:cover;
     filter:sepia(.50);
-    background:
-    /*background-image: url('../src/assets/personajes-populares-videojuegos.webp');*/
-   /* background-image: url('../src/assets/personajes.jpg_1330518127.webp');*/
-   /*background-image: url('../src/assets/a.jpg');*/
-  
+    
+    
 }
 
 .lateral {
@@ -27,13 +33,33 @@
 }
 
 
-
-
-/*.ok {
-
-  background-image: url('../src/assets/yes.jpg');
-  background-repeat: no-repeat;
-  border: 2px solid red;
+.enlace {
    
+    text-decoration: none;
+  
 
-}*/
+}
+
+
+.enlace2 {
+   
+    text-decoration: none;
+  
+
+}
+
+.enlace3 {
+
+  text-decoration: none;
+
+
+}
+
+
+.enlace4 {
+
+  text-decoration: none;
+
+
+}
+

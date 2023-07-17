@@ -54,26 +54,35 @@ export default function CardGame({ game }) {
   return (
     <Card
       sx={{
-        width: '280px',
-        height: '40%',
-        backgroundColor: 'aquamarine',
+        width: '300px',
+        height: '400px',
+        backgroundColor: '#00BFA5',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        justifyContent: 'center',
+        padding: '0 25px',
+        margin: '5px',
+        border: '1px solid',
       }}
     >
       <Link to={`/dashboard/game/${game.game_title}`}>
         <CardHeader
           sx={{
-            width: '95%',
+            width: '88%',
             height: '60px',
+            textAlign: 'center',
           }}
           title={game.game_title.toUpperCase()}
-          subheader={game.game_controll_age}
         />
       </Link>
-      <CardMedia component="img" height="120vh" image={image} />
-      <Box Box>
+
+      <Typography sx={{ textAlign: 'center', marginBottom: '30px' }}>
+        {' '}
+        {game.game_controll_age}
+      </Typography>
+      <CardMedia component="img" height="180vh" image={image} />
+      <Box>
         <Button
           variant="contained"
           color="primary"

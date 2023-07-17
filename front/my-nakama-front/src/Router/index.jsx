@@ -7,6 +7,8 @@ import Dashboard from '../Pages/Dashboard/Dashboard'
 import SelectGame from '../Pages/SelectGame/SelectGame'
 import ViewPlayers from '../Pages/ViewPlayers/ViewPlayers'
 import Profile from '../Pages/Profile/Profile'
+import Message from '../Pages/Message/Message'
+import Home from '../Pages/Home/Home'
 
 
 
@@ -19,14 +21,22 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
+        element: <Home />,
+      },
+
+      {
+        path: '/login',
         element: <Login />,
       },
+
       {
         path: '/signup',
         element: <Signup />,
       },
     ],
   },
+
+  // MAIN
   {
     path: '/dashboard',
     element: <Main />,
@@ -55,6 +65,16 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '/invitation',
+    element: <Main />,
+    children: [
+      {
+        path: '/invitation',
+        element: <Message />,
+      },
+    ],
+  },
 ])
 
 export default router
@@ -62,19 +82,4 @@ export default router
 
 
 
-      // MAIN
-
-      /* path: '/dashboard',
-    element: <Main />,
-    children: [
-
-      {
-        path: '/dashboard',
-        element: <Dashboard />,
-      },
-      {
-        path: '/selectgame',
-        element: <SelectGame />,
-      }, 
-
- */
+    

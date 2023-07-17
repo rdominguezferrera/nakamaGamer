@@ -1,26 +1,10 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
-import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import CssBaseline from '@mui/material/CssBaseline'
-import IconButton from '@mui/material/IconButton'
-import MenuIcon from '@mui/icons-material/Menu'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 import { getAllCategories } from '../../services/category.services'
 import { getAllUsers } from '../../services/user.services'
 import { useState, useEffect } from 'react'
-import { InputAdornment, TextField } from '@mui/material'
-import Avatar from '@mui/material/Avatar'
-import Stack from '@mui/material/Stack'
-import image from '../../assets/man.jpg'
-import image2 from '../../assets/ar.png'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-import Icon from '@mui/material/Icon'
-import SearchIcon from '@mui/icons-material/Search'
-import CardUser from '../../Pages/Dashboard/CardUser/CardUser'
 
 function Body() {
   const [users, setUsers] = useState([])
@@ -68,7 +52,7 @@ function Body() {
       >
         CATEGORIES
       </Box>
-      {/* <CardUser user="Hola"/>  */}
+   
 
       <Box
         sx={{

@@ -1,6 +1,0 @@
-(1, 'Counter_Strike', 'Its a nice game', 'menores de 13','entre 13 y 15','mayores de 18' )
-(2, 'Overwatch', 'Its a beautifull game', 'menores de 13','entre 13 y 15','mayores de 18' )
-(3, 'League_of_legends','Its a bad game','menores de 13','entre 13 y 15','mayores de 18')
-(4, 'Age_of_empire', 'Its a strategy game','menores de 13','entre 13 y 15','mayores de 18' )
-(5, 'The sims', 'Its a game', 'menores de 13','entre 13 y 15','mayores de 18')
-(6, 'Valorant', 'Its a shooter game', 'menores de 13','entre 13 y 15','mayores de 18')
